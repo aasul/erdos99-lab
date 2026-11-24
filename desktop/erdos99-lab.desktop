@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Erdős 99 Lab
+Comment=Open your point-configuration research laboratory
+Exec=xdg-open /home/aasim/Documents/ChatGPT/erdos/desktop/index.html
+Icon=/home/aasim/Documents/ChatGPT/erdos/desktop/icon.svg
+Terminal=false
+Categories=Education;Science;Math;

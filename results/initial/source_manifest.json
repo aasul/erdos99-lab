@@ -1,0 +1,18 @@
+{
+  "description": "Final reproduction and analysis sources. Optimization and start generation were unchanged after the initial search.",
+  "sha256": {
+    ".gitignore": "e721fef52ba48b6640a7a6e6a95dc0baa802e07ddc661471aa5a944876f719fb",
+    "erdos99/__init__.py": "274ec68173fb490b8469e43b78a2035e524fb95f89b5fd59fd566eeed87b3db7",
+    "erdos99/analyze.py": "8a474ee65715afaeab957f6720e571fb5510ffbe83b2ee4597ae72abb5038ba8",
+    "erdos99/experiment.py": "91739d164f685939822fe0671e352d2426e6299060ed586ace42070eef0b1e58",
+    "erdos99/geometry.py": "cb6e1cbb886651e9b94756cf2c07f1bbeb647611ee09b915b165aa56e6147848",
+    "erdos99/optimize.py": "8a5300e502d408b7b2e6ca70493a0ed80fd6ac0013e7030a6133f290919ca66b",
+    "erdos99/starts.py": "413646ab7d01ab20b6c97cd7af6e2adab69c0a7a51d4fba07369503197f70393",
+    "erdos99/verify.py": "41e7cb070818708c2e9d7c8fdebf306d2ab159805315a59890e54d8e0ff9ffee",
+    "pyproject.toml": "796117f9e051584ecacc4f9ad325fc9cf68a4b09ff68c970bebb33ca45dbaa10",
+    "requirements-lock.txt": "17a8ae30a8a2fe3e42f43d242cd09a85a2a1151be4ec8659b22152a4db6bee76",
+    "requirements.txt": "a4ee9111f316419d5f1403cc45af2592f9e63e89587e47ad59e9734b45d89699",
+    "scripts/reproduce.sh": "6097030feb97b2e4b597fddb1f411dd6a0eddbba275c809f4a5066f895b67a25",
+    "tests/test_research.py": "62786d271c83b672d2141c959d1d559c6643182d911b30d328d8e64b9a8095d4"
+  }
+}

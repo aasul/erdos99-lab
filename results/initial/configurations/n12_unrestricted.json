@@ -1,0 +1,97 @@
+{
+  "n": 12,
+  "family": "jittered_triangular",
+  "seed": 99,
+  "margin": 0.0,
+  "diameter": 2.9093129111764133,
+  "points": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      1.0000000000020022,
+      0.0
+    ],
+    [
+      0.5000000000010002,
+      -0.8660254037861704
+    ],
+    [
+      4.481492309056957e-16,
+      1.0000000000020004
+    ],
+    [
+      -0.3660254037851709,
+      -1.366025403787172
+    ],
+    [
+      1.8660254037881718,
+      -0.5000000000010015
+    ],
+    [
+      -0.8660254037861721,
+      0.5000000000010004
+    ],
+    [
+      -0.8660254037861711,
+      -0.5000000000010003
+    ],
+    [
+      1.000000000002001,
+      1.0000000000020002
+    ],
+    [
+      1.8660254037881725,
+      0.5000000000010014
+    ],
+    [
+      0.5000000000010002,
+      -1.8660254037881723
+    ],
+    [
+      1.3660254037871715,
+      -1.366025403787172
+    ]
+  ],
+  "verification": {
+    "n": 12,
+    "pair_count": 66,
+    "min_distance_decimal60": "1.00000000000199979947537862188423413769434211338339616642680",
+    "max_distance_decimal60": "2.90931291118223136190707601983494794364648560416928771806549",
+    "normalized_diameter": 2.9093129111764133,
+    "exact_saved_feasible": true,
+    "certified_diameter_upper": "2.9093129112",
+    "exact_saved_unit_triangles": 0,
+    "near_unit_triangles": {
+      "1e-8": 7,
+      "1e-6": 7,
+      "1e-4": 7
+    },
+    "triangle_margin": 5.562177826479941e-16,
+    "requested_margin": 0.0,
+    "exact_requested_margin": true,
+    "margin_within_acceptance": true
+  },
+  "optimizer": {
+    "success": true,
+    "status": 0,
+    "message": "Optimization terminated successfully",
+    "iterations": 14,
+    "raw_min_residual": -5.329070518200751e-15,
+    "raw_min_distance": 0.9999999999999992,
+    "fallback": false,
+    "elapsed_seconds": 0.017409560998203233
+  },
+  "source_margin": 0,
+  "diagnostics": {
+    "contacts": 21,
+    "near_unit_triangles": 7,
+    "triangle_margin": 4.440892098500626e-16,
+    "contact_rank": 20,
+    "bar_flex_dimension": 1,
+    "rotational_orders": [
+      3
+    ]
+  }
+}

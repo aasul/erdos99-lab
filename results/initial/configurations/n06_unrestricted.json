@@ -1,0 +1,66 @@
+{
+  "n": 6,
+  "family": "polygon_center_baseline",
+  "seed": 0,
+  "margin": 0.0,
+  "diameter": 1.9021130325903073,
+  "points": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      1.000000000002,
+      0.0
+    ],
+    [
+      0.3090169943755655,
+      0.9510565162970556
+    ],
+    [
+      -0.8090169943765653,
+      0.5877852522936489
+    ],
+    [
+      -0.8090169943765655,
+      -0.5877852522936486
+    ],
+    [
+      0.3090169943755653,
+      -0.9510565162970557
+    ]
+  ],
+  "verification": {
+    "n": 6,
+    "pair_count": 15,
+    "min_distance_decimal60": "1.00000000000199993196904033727686460521970995525838858536566",
+    "max_distance_decimal60": "1.90211303259411137935510485661637186206029858558809938097053",
+    "normalized_diameter": 1.9021130325903073,
+    "exact_saved_feasible": true,
+    "certified_diameter_upper": "1.9021130326",
+    "exact_saved_unit_triangles": 0,
+    "near_unit_triangles": {
+      "1e-8": 0,
+      "1e-6": 0,
+      "1e-4": 0
+    },
+    "triangle_margin": 0.17557050458494614,
+    "requested_margin": 0.0,
+    "exact_requested_margin": true,
+    "margin_within_acceptance": true
+  },
+  "optimizer": {
+    "method": "construction"
+  },
+  "source_margin": 0,
+  "diagnostics": {
+    "contacts": 5,
+    "near_unit_triangles": 0,
+    "triangle_margin": 0.17557050458494605,
+    "contact_rank": 5,
+    "bar_flex_dimension": 4,
+    "rotational_orders": [
+      5
+    ]
+  }
+}

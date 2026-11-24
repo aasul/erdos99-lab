@@ -1,0 +1,117 @@
+# Investigating Erdős Problem #99
+
+Initial research environment completed on 23 November 2026.
+
+## The question in everyday language
+
+Imagine putting identical coins on a table. Their centres must be at least one coin-width apart. Try to make the greatest distance between any two centres as small as possible. This greatest distance is the **diameter**. We measure centres, rather than the outside edges of the coins.
+
+Let
+
+\[
+D_n=\min_{p_1,\ldots,p_n\in\mathbb R^2}\max_{i<j}\lVert p_i-p_j\rVert,
+\qquad\lVert p_i-p_j\rVert\ge1\quad(i<j).
+\]
+
+At an exact optimum the minimum distance is 1: otherwise shrinking everything slightly would improve the diameter. The problem is invariant under moving, rotating and uniformly scaling a picture (after restoring minimum distance 1).
+
+Erdős asks whether there is a number \(N\) such that, for **every** \(n\ge N\), **every** configuration attaining \(D_n\) has three points with all three mutual distances exactly 1. The [problem page](https://www.erdosproblems.com/99) lists this as open. Its precise quantifiers are also recorded in the [formal-conjectures statement](https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/99.lean); that file contains an unproved statement, not a proof.
+
+A disproof therefore needs exceptions for unboundedly large values of \(n\), with global optimality proved for each one. A single finite exception, however large, cannot rule out a later threshold. A finite computation could help produce a general theorem or family, but a finite list alone cannot decide this eventual assertion.
+
+## Established results and literature
+
+The following are **known mathematical benchmarks**, rather than discoveries of this search:
+
+| n | Exact optimal diameter | One optimal arrangement | Unit equilateral triangle in this example? |
+|---:|---|---|---|
+| 4 | \(\sqrt2\) | unit square | no |
+| 5 | \((1+\sqrt5)/2\) | regular pentagon, side 1 | no |
+| 6 | \(2\sin(2\pi/5)\) | regular pentagon of radius 1 plus centre | no |
+| 7 | \(2\) | regular hexagon of radius 1 plus centre | yes, six |
+| 8 | \(1/(2\sin(\pi/14))\) | regular heptagon of side 1 plus centre | no |
+
+Bateman–Erdős (1951) treated the cases through 7; Bezdek–Fodor (1999) established the case 8. The latter paper's [publisher abstract](https://doi.org/10.1006/jcta.1998.2889) confirms this scope. The constructions and formulas above are also described in [Daróczy-Kiss (2005), section 2](https://ac.inf.elte.hu/Vol_025_2005/doi/025_25.pdf).
+
+Daróczy-Kiss constructs a nine-point upper bound below 2.5693, using a heptagonal boundary with two interior points. [Audet, Fournier, Hansen and Messine (2010)](https://www.academia.edu/27925789/A_note_on_diameters_of_point_sets) refine this candidate and present upper bounds through 30 points. Their table supplies our **historical comparison column**; it is not a list of proven optima beyond 8, and we do not claim it represents current records. The [institutional paper record](https://www.gerad.ca/fr/papers/G-2009-85) confirms the computational scope. Their nine-point candidate is approximately 2.5692369799514058. Our run recovers it numerically.
+
+The large-scale diameter satisfies
+\[
+D_n=\sqrt{\frac{2\sqrt3}{\pi}}\sqrt n+O(1).
+\]
+Triangular-lattice patches achieve the correct leading growth. This gives no exact triangle conclusion. [Bondarenko–Hardin–Saff (2014), introduction and Theorem 2](https://www.math.vanderbilt.edu/saffeb/texts/229.pdf) discuss these asymptotics, give general diameter bounds, and record the stronger planar bound \(D_n\ge\sqrt{n/(\pi/\sqrt{12})}-1\) from Bezdek–Fodor. They also cite Schürmann's theorem that large optimizers are not entirely lattice packings. A boundary defect can coexist with many triangular-lattice contacts, so this does not refute #99.
+
+A [September 2026 preprint by Archit Das](https://zenodo.org/records/22768362) proposes stress and rhombic-structure reductions, explicitly retaining the open problem. Its abstract motivates useful diagnostics, but we have not validated its arguments and do not use its claims as established results.
+
+Access limitations: the main problem page and full Bezdek–Fodor article blocked direct fetching; the problem statement was available through indexed primary-page text, and the publisher abstract was accessible through search. The original [Erdős 1994 scan](https://mathematica-pannonica.ttk.pte.hu/articles/mp05-2/mp05-2-261-269.pdf) is linked for reading, but its text extraction failed. We read the accessible Daróczy-Kiss and Bondarenko–Hardin–Saff texts and the Audet paper's indexed full text. No exhaustive literature review or new proof is claimed.
+
+## How the numerical experiment works
+
+The solver adds a variable \(t\), minimizes it, and enforces for every pair
+\[
+1\le\lVert p_i-p_j\rVert^2\le t.
+\]
+The reported diameter is \(\sqrt t\), independently recalculated from the actual coordinates. Squared distances have convenient derivatives. SLSQP adjusts the coordinates using these derivatives while trying to satisfy all inequalities. We fix one point at the origin and a second on the positive horizontal axis to remove redundant translations and rotations. That choice does not impose a geometric symmetry.
+
+The search includes circular triangular- and square-lattice patches, a polygon with a centre point, a golden-angle spiral, independent random disk samples, jittered lattice patches, and small-case/literature constructions. Random seeds are **99, 2026, 31415**, combined deterministically with \(n\). Both random families use every seed. User-defined JSON starts are supported. No reflectional or rotational symmetry is required by the optimizer.
+
+For the triangle-free comparisons, define the scale-invariant margin
+\[
+g(P)=\min_{\{i,j,k\}}\left(\frac{\max(d_{ij},d_{ik},d_{jk})}{\min_{a<b}d_{ab}}-1\right).
+\]
+After minimum-distance normalization, \(g(P)>0\) excludes unit equilateral triangles. We search with target margins **0.001** and **0.01**. Thus every triple must have a side at least 1.001 or 1.01, up to the reported numerical residual. This is more restrictive than simply having no exact unit triangle.
+
+The disjunction “at least one of three edges is long” is difficult to optimize directly. For each starting configuration we choose the longest edge of each triple as a witness, then require all selected witness edges to be long. These choices are fixed within that solver call. Different starts explore different branches, but **we do not enumerate all branches**. A small deterministic jitter prepares a feasible branch when necessary. The starting configuration remains available if the solver fails or returns a worse result. A restricted result also competes for the unrestricted best, since it is a valid unrestricted arrangement.
+
+## Reading the results
+
+The initial run saved **1,158 trials**, including **882 solver calls**, and selected **81 configurations**. All saved trials passed exact-rational separation checks. Six focused software tests passed. Nineteen solver calls reported failure (18 line-search failures and one incompatible-constraints message); 169 calls retained their prepared starting configuration. Four selected configurations miss their requested margin by less than \(1.4\times10^{-14}\), and all pass the documented \(10^{-8}\) acceptance tolerance. These details are retained rather than rounded away.
+
+See [the complete comparison table](../results/initial/TABLE.md), [gallery](../results/initial/figures/gallery.png), [comparison plot](../results/initial/figures/comparison.png), and [starting-point plot](../results/initial/figures/starts.png). The table compares the best examples found, not the unknown true minima. “Near-unit triangle” means all three normalized sides differ from 1 by at most \(10^{-6}\).
+
+Several pictures are especially informative:
+
+- **4 points:** the square has diameter \(\sqrt2\) and no triangle of three unit sides. Turning its corners into a triangular pattern does not help.
+- **6 points:** five points sit on a circle of radius 1 around the sixth. Each spoke has length 1, but neighboring outside points are about 1.176 apart. A picture can have many unit segments without a unit equilateral triangle.
+- **7 points:** six neighbours fit around a centre, creating six unit triangles. The best diameter found is 2. The two positive-margin searches have slightly larger diameters. This is evidence about these searches, not a proof of a universal cost for removing triangles.
+- **8 points:** the heptagon has room for a central point which touches no other point when centred. Moving this point a little leaves the diameter unchanged. This “loose” point explains why an optimum need not be rigid or unique.
+- **9 points:** the recovered arrangement matches a published candidate and has no near-unit triangle at our threshold. Its diameter has no matching global lower-bound proof here.
+- **19 points:** a highly symmetric arrangement has diameter about 3.863703305, below the diameter 4 of a natural triangular-lattice patch. Making the boundary more circular can help even when the interior contains triangular contacts.
+
+Some restricted searches tie the best unrestricted result in our sample. That means the sampled unrestricted search has not beaten them; it does not prove that they attain \(D_n\). The historical comparison exposes several missed configurations and is a concrete warning against interpreting repeated convergence as proof. Tiny differences from historical rounded values are not record claims.
+
+## Verification and limitations
+
+The optimizer uses binary 64-bit arithmetic, a maximum of 600 iterations, and SLSQP stopping tolerance \(10^{-10}\). This stopping rule is not an error bound on the global optimum. Raw solver success, status, iteration count, minimum constraint residual and fallback decisions are retained for every call.
+
+Every trial is normalized and expanded by a relative \(2\times10^{-12}\) safety factor. This corrects small separation violations and can only increase its absolute diameter. The independent verifier does not import NumPy or reuse the optimizer's distance function. It recomputes every squared distance using Python `Fraction` on the saved decimal coordinates, and calculates distance displays with 60-digit `Decimal` arithmetic. It proves that every saved pair is separated by at least 1 and checks an upward-rounded diameter bound exactly. These are **rigorous feasibility/upper-bound checks for the decimal coordinates**, not global-optimality certificates.
+
+Margin acceptance allows \(10^{-8}\) residual. `audit.json` distinguishes passing this criterion from satisfying the exact requested margin. Its `certified_triangle_margin_lower` rounds down and verifies the margin lower bound with rational arithmetic. It also counts near-unit triangles at \(10^{-8},10^{-6},10^{-4}\). Sixty printed digits describe the stored approximate coordinates; they do not mean the optimizer found sixty correct digits of an optimum.
+
+The deliberate expansion can remove every exact unit contact. Even without expansion, generic rounding or arbitrarily small perturbations can remove exact equilateral triangles. Therefore counting exact triangles in saved floating-point coordinates would be misleading. The [perturbation control](../results/initial/perturbation.csv) and [its plot](../results/initial/figures/perturbation.png) show a seven-point configuration approaching diameter 2 as the displacement tends to zero, while its positive triangle margin also tends to zero. The infimum over triangle-free configurations can equal the unrestricted optimum without being attained by a triangle-free optimizer.
+
+`structure.json` tests rotations of orders 2 through 12 by matching rotated points, tolerance \(10^{-5}\). Bar rigidity ranks use singular-value threshold \(10^{-7}\); contacts and longest pairs use length tolerance \(10^{-6}\). A bar treats a distance as a fixed equality. Actual packing constraints are one-sided inequalities, so these ranks neither prove that an arrangement is locally optimal nor prove that a displayed flex improves it.
+
+## Can a construction work for arbitrarily large n?
+
+There is an elementary family worth understanding. Take two unit vectors making an angle \(\theta\) strictly between \(60^\circ\) and \(90^\circ\), and all their integer combinations. The only shortest vectors are the two generators and their negatives: for coefficients with absolute value at least 2 the perpendicular projection is already longer than 1, and the remaining small cases can be checked directly. Consequently its unit contact graph is a square grid, with no triangles. Finite patches give arbitrarily large triangle-free configurations.
+
+However, a lattice cell has area \(\sin\theta\), larger than \(\sin60^\circ\). A large circular patch therefore has leading diameter
+\[
+\sqrt{4n\sin\theta/\pi}.
+\]
+For a fixed angle above 60 degrees, the ratio to triangular-lattice growth is \(\sqrt{\sin\theta/\sin60^\circ}>1\). These constructions lose asymptotically. Letting the angle approach 60 degrees with \(n\) removes this fixed ratio penalty, but gives **no exact optimality argument**. The saved [rhombic control](../results/initial/rhombic.csv) checks finite patches at several angles. It compares constructions, not optimal solutions. Repeating small clusters similarly fails to supply a global lower bound.
+
+## What would a proof need?
+
+For four points there is a short proof. If the points form a convex quadrilateral, some interior angle is at least 90 degrees. Its two adjacent sides have length at least 1, so the opposite diagonal has squared length at least \(1+1=2\), by the cosine rule. If one point lies inside the triangle of the others, two rays from it make an angle at least 120 degrees, giving a distance at least \(\sqrt3\). A point on an edge gives a distance at least 2 between that edge's endpoints. A collinear set has span at least 3. Thus every four-point set has diameter at least \(\sqrt2\), and the square attains it.
+
+For the new numerical candidates beyond the known small cases, our general lower bounds are strictly smaller than the upper bounds. Contact equations, numerical rigidity and stationary solver output cannot close that gap. A plausible route is to recover exact coordinates for a candidate and then prove an exclusion theorem or run certified interval branch-and-bound over **all** competing configurations, with a compact domain and all label/symmetry reductions justified. Exact coordinates alone prove only existence. No new global-optimality proof or counterexample was obtained here.
+
+## Three ideas for you to choose from
+
+1. **Angles and the square.** Reconstruct the four-point proof with drawings and the cosine rule. Can you handle the inside and edge cases without a computer?
+2. **A graph made from coins.** Draw an edge only when two centres are one unit apart. Compare the square, pentagon-plus-centre and hexagon-plus-centre. Which graph property detects a unit equilateral triangle, and what can move without changing the important distances?
+3. **The almost-triangle trap.** Shear a triangular lattice toward a rhombic one, or perturb the seven-point example. Track both diameter and triangle margin. Explain why a sequence of better and better triangle-free pictures need not end at a triangle-free optimum.
+
+The initial investigation stops here. These are choices for your next investigation, not additional searches being launched automatically.

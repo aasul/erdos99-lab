@@ -1,0 +1,107 @@
+{
+  "n": 15,
+  "family": "best_unrestricted",
+  "seed": 0,
+  "margin": 0.01,
+  "diameter": 3.473462550395829,
+  "points": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      1.5742652063780005,
+      0.0
+    ],
+    [
+      0.32728853438863836,
+      0.9449244494993992
+    ],
+    [
+      0.7871326031889999,
+      -0.6167838073433165
+    ],
+    [
+      1.3269999315057979,
+      0.9689478230773763
+    ],
+    [
+      -0.8462863861011325,
+      0.5327282165456342
+    ],
+    [
+      1.9966508229506508,
+      -0.9174368593623382
+    ],
+    [
+      0.6264508607233723,
+      1.899134475377898
+    ],
+    [
+      -0.0919115201450297,
+      -1.0935242285747386
+    ],
+    [
+      2.322210065691354,
+      0.87118899320317
+    ],
+    [
+      -0.5189978517124952,
+      1.477652666045034
+    ],
+    [
+      1.2032263238484124,
+      -1.5261055411822333
+    ],
+    [
+      1.6345851561818545,
+      1.9204683586229734
+    ],
+    [
+      -0.8790441233340297,
+      -0.47674042123142474
+    ],
+    [
+      2.5694753405635575,
+      -0.0977588298742044
+    ]
+  ],
+  "verification": {
+    "n": 15,
+    "pair_count": 105,
+    "min_distance_decimal60": "1.00000000000200006611148926083375983611382633765899409631851",
+    "max_distance_decimal60": "3.47346255040277590374096473440126865776510516378243102215788",
+    "normalized_diameter": 3.473462550395829,
+    "exact_saved_feasible": true,
+    "certified_diameter_upper": "3.4734625505",
+    "exact_saved_unit_triangles": 0,
+    "near_unit_triangles": {
+      "1e-8": 0,
+      "1e-6": 0,
+      "1e-4": 0
+    },
+    "triangle_margin": 0.01000000000000403,
+    "requested_margin": 0.01,
+    "exact_requested_margin": true,
+    "margin_within_acceptance": true
+  },
+  "optimizer": {
+    "success": true,
+    "status": 0,
+    "message": "Optimization terminated successfully",
+    "iterations": 14,
+    "raw_min_residual": -7.993605777301127e-15,
+    "raw_min_distance": 0.999999999999996,
+    "fallback": false,
+    "elapsed_seconds": 0.04662085699965246
+  },
+  "source_margin": 0.01,
+  "diagnostics": {
+    "contacts": 18,
+    "near_unit_triangles": 0,
+    "triangle_margin": 0.010000000000004006,
+    "contact_rank": 18,
+    "bar_flex_dimension": 9,
+    "rotational_orders": []
+  }
+}

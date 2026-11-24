@@ -1,0 +1,35 @@
+{
+  "command": [
+    "/home/aasim/Documents/ChatGPT/erdos/erdos99/experiment.py",
+    "--n-max",
+    "30",
+    "--output",
+    "results/initial"
+  ],
+  "started_utc": "2026-11-23T20:41:21.406206+00:00",
+  "python": "3.14.10 (main, Nov 13 2026, 15:10:24) [GCC 16.2.1 20260810]",
+  "numpy": "2.5.5",
+  "scipy": "1.18.1",
+  "platform": "Linux-7.3.3-1-cachyos-x86_64-with-glibc2.44",
+  "seeds": [
+    99,
+    2026,
+    31415
+  ],
+  "margins": [
+    0.001,
+    0.01
+  ],
+  "maxiter": 600,
+  "ftol": 1e-10,
+  "contact_tolerance": 1e-06,
+  "acceptance_margin_tolerance": 1e-08,
+  "safety_inflation": 2e-12,
+  "thread_env": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "finished_utc": "2026-11-23T20:42:49.711625+00:00",
+  "elapsed_seconds": 88.30125683900042
+}

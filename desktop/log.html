@@ -1,0 +1,47 @@
+<!doctype html><meta charset="utf-8"><title>Erdős Lab</title><style>body{max-width:950px;margin:40px auto;padding:20px;font:17px system-ui;color:#18344b}pre{white-space:pre-wrap;font:16px/1.7 system-ui}</style><a href="index.html">← Laboratory</a><pre># Research log
+
+## 2026-11-23 — problem and sources
+
+Read the exact minimum-diameter formulation and its eventual quantifiers. The main site returned HTTP 403; indexed primary-page text supplied the statement and remarks. Located the Bezdek–Fodor publisher abstract; direct article fetching also returned 403. Read the accessible 2005 nine-point paper, the 2014 diameter/asymptotics paper and the indexed full 2010 computational paper. The original 1994 scan did not yield readable extracted text. A 2026 preprint was recorded as unverified contextual literature. Citations and access limitations are in `RESEARCH.md`.
+
+Important correction to an easy initial intuition: small triangle-free **optimal** examples exist at 4, 5, 6 and 8 points. Non-lattice boundary structure also does not imply the absence of local equilateral triangles.
+
+## Environment and implementation
+
+Workspace initially contained no research code. Default Python lacked NumPy, SciPy and Matplotlib. Created a local `.venv`; sandboxed dependency download failed because network name resolution was unavailable, then the authorized network-enabled installation succeeded. Recorded exact dependency versions and Python/platform details.
+
+Implemented an epigraph problem in squared distances, analytic constraint gradients, and a coordinate gauge removing translation and rotation. Added structured and random starts, optional custom input, solver-status logging, and independent verification using exact rational squared distances.
+
+For triangle avoidance, exact equality tests were rejected as scientifically uninformative: rounding alone would make almost every candidate look triangle-free. Implemented a positive scale-invariant margin instead. Fixed witness edges turn its disjunctive constraints into smooth branch problems. This is deliberately incomplete branch exploration; no global claim follows from the smallest result found.
+
+## Initial run
+
+Command: `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -m erdos99.experiment --n-max 30 --output results/initial`.
+
+Seeds: 99, 2026, 31415. Margins: 0.001 and 0.01. Maximum 600 SLSQP iterations; `ftol=1e-10`. Started at 21:41 Europe/Zurich; search elapsed about 88 seconds. Exact timestamps and versions are in `results/initial/metadata.json`.
+
+Each n uses four deterministic families and six stochastic starts; n=4..8 additionally use exact-form small examples and n=9 additionally uses normalized rounded literature coordinates. We preserve baselines, unrestricted optimizations and two sets of restricted optimizations. Every candidate is independently checked and written immediately to the JSONL log.
+
+The known diameters through 8 were recovered. The nine-point result numerically matches a published candidate. Some larger instances settle at worse local minima than historical published bounds. Positive-margin runs occasionally find better unrestricted competitors than the unrestricted calls did. The final unrestricted selection therefore considers every trial.
+
+Final counts: 1,158 trials, 882 solver calls, 81 selected configurations, 19 unsuccessful solver terminations, 169 retained starts. All trials are feasible under independent exact rational checks. Four selected margin results are below their exact target by under 1.4e-14, well within the declared 1e-8 residual allowance. A source SHA-256 manifest is saved alongside the results. Plot review confirmed readable labels and consistent unit-contact/diameter styling.
+
+## Failed and limited approaches
+
+- Some SLSQP calls terminated unsuccessfully. All statuses and raw residuals are preserved; successful calls are not treated as proofs, and unsuccessful calls can still supply feasible repaired upper bounds. Aggregate counts are in `audit.json`.
+- A single circular triangular-lattice patch is a poor model of every finite optimum. The 19-point comparison is a useful example of boundary effects.
+- A zero numerical triangle count can come from perturbation, loose points or normalization. It is never used as evidence of exact optimality.
+- The positive-margin problem explores selected witness branches only; a diameter gap is not a proved gap over all triangle-free configurations.
+- Contact-bar rigidity alone omits longest-pair restrictions and treats inequalities as equalities. Both contact-only and combined rank diagnostics are supplied, without an optimality claim.
+- Historical values are a useful check but not a current records database. Tiny apparent improvements are not new-record announcements.
+
+## Verification and controls
+
+Six focused tests check known benchmark geometry, analytic Jacobians by independent numerical differentiation, scale invariance and the triangle-detection trap, invalid inputs, deterministic seeds, and constrained optimization. Saved selected JSON files are reloaded with decimal parsing and reverified independently; all their pairwise distances are exported. The final audit records exact separation, diameter upper bounds, exact versus tolerated margin checks, solver failures and fallbacks.
+
+Generated PNG and SVG plots for all selected configurations plus a full gallery, highlights, diameter comparison, starting-family scatter, and perturbation control. A rhombic-lattice control demonstrates an infinite triangle-free construction family whose fixed-angle density penalty prevents an asymptotic optimality claim.
+
+## Unresolved and possible next work
+
+Global minima beyond the cited proven cases are not certified. No unbounded optimal triangle-free family has been constructed. Exhaustive contact/diameter graph classification or certified interval optimization would be substantial further projects. The report offers three student-sized mathematical directions. No further search is scheduled; wait for the student&#x27;s choice.
+</pre>

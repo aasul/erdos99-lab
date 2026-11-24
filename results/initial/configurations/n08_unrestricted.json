@@ -1,0 +1,74 @@
+{
+  "n": 8,
+  "family": "polygon_center_baseline",
+  "seed": 0,
+  "margin": 0.0,
+  "diameter": 2.2469796037174676,
+  "points": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      1.1523824354835481,
+      0.0
+    ],
+    [
+      0.7184986963651223,
+      0.9009688679042211
+    ],
+    [
+      -0.2564292158186513,
+      1.1234898018609807
+    ],
+    [
+      -1.0382606982882447,
+      0.5000000000010002
+    ],
+    [
+      -1.038260698288245,
+      -0.5000000000009999
+    ],
+    [
+      -0.2564292158186516,
+      -1.1234898018609807
+    ],
+    [
+      0.718498696365122,
+      -0.9009688679042213
+    ]
+  ],
+  "verification": {
+    "n": 8,
+    "pair_count": 28,
+    "min_distance_decimal60": "1.00000000000199993764833951097660637711326391802528267982221",
+    "max_distance_decimal60": "2.24697960372196141346127750286424035583051664141369723960347",
+    "normalized_diameter": 2.2469796037174676,
+    "exact_saved_feasible": true,
+    "certified_diameter_upper": "2.2469796038",
+    "exact_saved_unit_triangles": 0,
+    "near_unit_triangles": {
+      "1e-8": 0,
+      "1e-6": 0,
+      "1e-4": 0
+    },
+    "triangle_margin": 0.15238243548124342,
+    "requested_margin": 0.0,
+    "exact_requested_margin": true,
+    "margin_within_acceptance": true
+  },
+  "optimizer": {
+    "method": "construction"
+  },
+  "source_margin": 0,
+  "diagnostics": {
+    "contacts": 7,
+    "near_unit_triangles": 0,
+    "triangle_margin": 0.1523824354812433,
+    "contact_rank": 7,
+    "bar_flex_dimension": 6,
+    "rotational_orders": [
+      7
+    ]
+  }
+}

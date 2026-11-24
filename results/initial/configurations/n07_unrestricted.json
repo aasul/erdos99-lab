@@ -1,0 +1,72 @@
+{
+  "n": 7,
+  "family": "triangular_baseline",
+  "seed": 0,
+  "margin": 0.0,
+  "diameter": 2.0000000000000004,
+  "points": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      -0.500000000001,
+      0.8660254037861705
+    ],
+    [
+      -0.500000000001,
+      -0.8660254037861705
+    ],
+    [
+      0.500000000001,
+      0.8660254037861705
+    ],
+    [
+      0.500000000001,
+      -0.8660254037861705
+    ],
+    [
+      -1.000000000002,
+      0.0
+    ],
+    [
+      1.000000000002,
+      0.0
+    ]
+  ],
+  "verification": {
+    "n": 7,
+    "pair_count": 21,
+    "min_distance_decimal60": "1.00000000000199982889824202787731387803845479681933555201125",
+    "max_distance_decimal60": "2.000000000004",
+    "normalized_diameter": 2.0000000000000004,
+    "exact_saved_feasible": true,
+    "certified_diameter_upper": "2.0000000001",
+    "exact_saved_unit_triangles": 0,
+    "near_unit_triangles": {
+      "1e-8": 6,
+      "1e-6": 6,
+      "1e-4": 6
+    },
+    "triangle_margin": 1.7110175797178052e-16,
+    "requested_margin": 0.0,
+    "exact_requested_margin": true,
+    "margin_within_acceptance": true
+  },
+  "optimizer": {
+    "method": "construction"
+  },
+  "source_margin": 0,
+  "diagnostics": {
+    "contacts": 12,
+    "near_unit_triangles": 6,
+    "triangle_margin": 0.0,
+    "contact_rank": 11,
+    "bar_flex_dimension": 0,
+    "rotational_orders": [
+      2,
+      3,
+      6
+    ]
+  }
+}

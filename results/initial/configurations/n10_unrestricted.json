@@ -1,0 +1,87 @@
+{
+  "n": 10,
+  "family": "random_disk",
+  "seed": 2026,
+  "margin": 0.0,
+  "diameter": 2.777310779181224,
+  "points": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      2.4265065336994107,
+      0.0
+    ],
+    [
+      2.079278670635877,
+      1.8412103014120271
+    ],
+    [
+      1.5186401361682833,
+      -0.4192595905138643
+    ],
+    [
+      2.5966114138289855,
+      0.9854259636117295
+    ],
+    [
+      0.34722786306353415,
+      1.8412103014120274
+    ],
+    [
+      -0.17010488012957464,
+      0.985425963611729
+    ],
+    [
+      1.2132532668497058,
+      2.341210301413028
+    ],
+    [
+      0.9232571856607578,
+      0.3841824685351721
+    ],
+    [
+      1.2132532668497062,
+      1.3412103014110273
+    ]
+  ],
+  "verification": {
+    "n": 10,
+    "pair_count": 45,
+    "min_distance_decimal60": "1.00000000000199998870586316320892820989481869949969186974071",
+    "max_distance_decimal60": "2.77731077918677843923474513939921100517668258053655175942003",
+    "normalized_diameter": 2.777310779181224,
+    "exact_saved_feasible": true,
+    "certified_diameter_upper": "2.7773107792",
+    "exact_saved_unit_triangles": 0,
+    "near_unit_triangles": {
+      "1e-8": 2,
+      "1e-6": 2,
+      "1e-4": 2
+    },
+    "triangle_margin": 8.964101615119828e-16,
+    "requested_margin": 0.0,
+    "exact_requested_margin": true,
+    "margin_within_acceptance": true
+  },
+  "optimizer": {
+    "success": true,
+    "status": 0,
+    "message": "Optimization terminated successfully",
+    "iterations": 15,
+    "raw_min_residual": -4.440892098500626e-15,
+    "raw_min_distance": 0.9999999999999993,
+    "fallback": false,
+    "elapsed_seconds": 0.012149823000072502
+  },
+  "source_margin": 0,
+  "diagnostics": {
+    "contacts": 13,
+    "near_unit_triangles": 2,
+    "triangle_margin": 8.881784197001252e-16,
+    "contact_rank": 13,
+    "bar_flex_dimension": 4,
+    "rotational_orders": []
+  }
+}

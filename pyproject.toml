@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "erdos99-lab"
+version = "0.1.0"
+description = "Reproducible numerical experiments for Erdos Problem 99"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26", "scipy>=1.12", "matplotlib>=3.8"]
+
+[tool.setuptools.packages.find]
+include = ["erdos99*"]

@@ -1,0 +1,99 @@
+{
+  "n": 13,
+  "family": "best_unrestricted",
+  "seed": 0,
+  "margin": 0.001,
+  "diameter": 3.151479228788253,
+  "points": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      1.257210687013434,
+      0.0
+    ],
+    [
+      0.6286053435067597,
+      0.7777244512801272
+    ],
+    [
+      0.6286053435067435,
+      -0.77772445128023
+    ],
+    [
+      -0.27674448668868457,
+      1.3480243761501718
+    ],
+    [
+      -0.8830841350719292,
+      -0.471342137293764
+    ],
+    [
+      -0.8491925263524449,
+      0.5280833771207369
+    ],
+    [
+      2.1046449508091984,
+      0.5313024851440431
+    ],
+    [
+      1.51177188335461,
+      -1.246784002827049
+    ],
+    [
+      0.6262285322362531,
+      1.7777216266623561
+    ],
+    [
+      2.1403772268613337,
+      -0.469059551547038
+    ],
+    [
+      1.529999307940618,
+      1.3497048221007464
+    ],
+    [
+      -0.253687127851553,
+      -1.2484260499482338
+    ]
+  ],
+  "verification": {
+    "n": 13,
+    "pair_count": 78,
+    "min_distance_decimal60": "1.00000000000200015166127563382801094816108053812670585788164",
+    "max_distance_decimal60": "3.15147922879455626196912785916319177174115118531134098323686",
+    "normalized_diameter": 3.151479228788253,
+    "exact_saved_feasible": true,
+    "certified_diameter_upper": "3.1514792288",
+    "exact_saved_unit_triangles": 0,
+    "near_unit_triangles": {
+      "1e-8": 0,
+      "1e-6": 0,
+      "1e-4": 0
+    },
+    "triangle_margin": 0.001000000000191039,
+    "requested_margin": 0.001,
+    "exact_requested_margin": true,
+    "margin_within_acceptance": true
+  },
+  "optimizer": {
+    "success": true,
+    "status": 0,
+    "message": "Optimization terminated successfully",
+    "iterations": 4,
+    "raw_min_residual": -1.2292389328649733e-12,
+    "raw_min_distance": 0.9999999999999473,
+    "fallback": false,
+    "elapsed_seconds": 0.008783675999438856
+  },
+  "source_margin": 0.001,
+  "diagnostics": {
+    "contacts": 16,
+    "near_unit_triangles": 0,
+    "triangle_margin": 0.0010000000001910703,
+    "contact_rank": 16,
+    "bar_flex_dimension": 7,
+    "rotational_orders": []
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "n": 11,
+  "family": "best_unrestricted",
+  "seed": 0,
+  "margin": 0.01,
+  "diameter": 2.872145417287597,
+  "points": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      1.0000000000020008,
+      0.0
+    ],
+    [
+      0.48995000000098077,
+      0.8717505362791824
+    ],
+    [
+      0.8570926042760328,
+      -0.9897360639336256
+    ],
+    [
+      -0.6238170007024382,
+      0.830085742746612
+    ],
+    [
+      -0.14290739572596778,
+      -0.9897360639336245
+    ],
+    [
+      -0.9428076408776181,
+      -0.33333729510329346
+    ],
+    [
+      1.249304932933424,
+      1.522427173200445
+    ],
+    [
+      1.9286281974864303,
+      -0.39717712779175085
+    ],
+    [
+      0.03487956239679808,
+      1.7622059797589438
+    ],
+    [
+      1.7526958602700202,
+      0.6583683937883017
+    ]
+  ],
+  "verification": {
+    "n": 11,
+    "pair_count": 55,
+    "min_distance_decimal60": "1.00000000000199992512031423431294736804770392124580179481736",
+    "max_distance_decimal60": "2.87214541729334100085188062913806983401953535337606432980454",
+    "normalized_diameter": 2.872145417287597,
+    "exact_saved_feasible": true,
+    "certified_diameter_upper": "2.8721454173",
+    "exact_saved_unit_triangles": 0,
+    "near_unit_triangles": {
+      "1e-8": 0,
+      "1e-6": 0,
+      "1e-4": 0
+    },
+    "triangle_margin": 0.010000000000001185,
+    "requested_margin": 0.01,
+    "exact_requested_margin": true,
+    "margin_within_acceptance": true
+  },
+  "optimizer": {
+    "success": true,
+    "status": 0,
+    "message": "Optimization terminated successfully",
+    "iterations": 13,
+    "raw_min_residual": -2.6645352591003757e-15,
+    "raw_min_distance": 0.9999999999999987,
+    "fallback": false,
+    "elapsed_seconds": 0.017192799001350068
+  },
+  "source_margin": 0.01,
+  "diagnostics": {
+    "contacts": 10,
+    "near_unit_triangles": 0,
+    "triangle_margin": 0.010000000000001119,
+    "contact_rank": 10,
+    "bar_flex_dimension": 9,
+    "rotational_orders": []
+  }
+}

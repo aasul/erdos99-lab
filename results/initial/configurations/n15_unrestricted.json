@@ -1,0 +1,107 @@
+{
+  "n": 15,
+  "family": "spiral",
+  "seed": 0,
+  "margin": 0.0,
+  "diameter": 3.4696452668722704,
+  "points": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      1.569864915922221,
+      0.0
+    ],
+    [
+      0.31849874147182594,
+      0.9479232836495148
+    ],
+    [
+      0.7849324579611222,
+      -0.619581339650532
+    ],
+    [
+      1.3183003735557064,
+      0.9678405245844696
+    ],
+    [
+      -0.8480386329164425,
+      0.5299344082858669
+    ],
+    [
+      1.9902151999561233,
+      -0.9073619116519537
+    ],
+    [
+      0.6369974829436323,
+      1.8958465672990517
+    ],
+    [
+      -0.0980235184121203,
+      -1.0890371350038186
+    ],
+    [
+      2.3142739814896247,
+      0.8781935932197963
+    ],
+    [
+      -0.5295398914445868,
+      1.4778576919353772
+    ],
+    [
+      1.2052827419949945,
+      -1.5269432513024686
+    ],
+    [
+      1.6367991150275194,
+      1.915763808233987
+    ],
+    [
+      -0.8829559763732443,
+      -0.46945579535330034
+    ],
+    [
+      2.5658385238562067,
+      -0.08964693136466212
+    ]
+  ],
+  "verification": {
+    "n": 15,
+    "pair_count": 105,
+    "min_distance_decimal60": "1.00000000000200001579954899316112077720080356479630575518309",
+    "max_distance_decimal60": "3.46964526687920966834245894721303093313360135379982312016541",
+    "normalized_diameter": 3.4696452668722704,
+    "exact_saved_feasible": true,
+    "certified_diameter_upper": "3.4696452669",
+    "exact_saved_unit_triangles": 0,
+    "near_unit_triangles": {
+      "1e-8": 2,
+      "1e-6": 2,
+      "1e-4": 2
+    },
+    "triangle_margin": 4.027908619741504e-14,
+    "requested_margin": 0.0,
+    "exact_requested_margin": true,
+    "margin_within_acceptance": true
+  },
+  "optimizer": {
+    "success": true,
+    "status": 0,
+    "message": "Optimization terminated successfully",
+    "iterations": 16,
+    "raw_min_residual": -3.907985046680551e-14,
+    "raw_min_distance": 0.9999999999999883,
+    "fallback": false,
+    "elapsed_seconds": 0.025777555998502066
+  },
+  "source_margin": 0,
+  "diagnostics": {
+    "contacts": 22,
+    "near_unit_triangles": 2,
+    "triangle_margin": 4.0190073491430667e-14,
+    "contact_rank": 22,
+    "bar_flex_dimension": 5,
+    "rotational_orders": []
+  }
+}
